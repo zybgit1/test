@@ -1,0 +1,142 @@
+*{
+ 
+    margin: 0;
+    padding: 0px;
+   
+}
+
+#table{
+    width: 100%;
+    padding: 0px;
+    border: 0px;
+    margin: 0px;
+}
+
+#header{
+    font-size: 20px;
+    line-height: 80px;
+    text-align: center;
+    background-color:#51ebf0;
+    color:white;
+    border: 0px;    
+    
+}
+
+#imgth {
+    width: 30px;
+    height: 30px;
+    margin: auto;
+    vertical-align: middle;
+
+}
+.midbody{
+    background-color:  #51ebf0;
+}
+
+.dhl{
+    
+    vertical-align: top; 
+    float: left;
+    position:sticky; 
+    top: 0px; 
+    width: 20%;
+}
+.dhl ul li:last-child{
+    border-bottom: none;
+}
+
+ul{ 
+    list-style-type:none;     
+    text-align:top;  
+    margin: 0;                     
+    padding:0;                     
+    line-height:48px;   
+    background-color: #51ebf0;
+           
+}
+li{
+    border-bottom: 1px solid black;   
+}
+li a{
+    
+    display: block;             /*变成块*/
+    text-decoration: none;
+    text-align: center;
+    color: rgba(96, 0, 252, 0.877);
+}
+li a:hover{
+    background-color: black;
+}
+li a:active{
+    background-color: tomato;
+}
+
+
+.div2{
+    display:inline-block;
+    width: 80%;  
+    text-align: left;   
+    background-color: white;
+}
+
+.div3{
+    text-align: center;
+}
+ 
+
+#img2:hover {
+    opacity:0.4;
+    filter:alpha(opacity=0.4);
+}
+
+#img2{
+    margin: auto;
+    width:300px;
+    height:232px;
+    opacity:1.0;
+    filter:alpha(opacity=100); 
+
+}
+
+#table2{
+    border-color: solid black;
+    border-collapse: collapse;
+     margin:0 auto;
+     width: 50%; 
+}
+
+#table2 tr td:last-child::before{
+    content:'￥';
+}
+
+.explain {
+    
+    padding: 20px;
+    font-size: 20px;
+    text-align: left;
+    width:auto;
+    font-size: 20px;
+}
+.explain p{
+    width:auto;
+}
+.explain p:first-letter { 
+      font-size: 50px;
+}
+
+img{
+    width:100px;
+     height:100px;
+}
+
+#foot{
+    height:100px;
+    line-height:100px;
+    font-size: 15px;
+    text-align: center;
+    background-color: #51ebf0;
+    
+}
+.explain p {
+    text-indent:  1em;
+}
