@@ -4,7 +4,7 @@
     
     {
        "id":"4",
-       "title": "咖啡店（table布局）",
+       "title": "咖啡店",
        "cretime":"2019-11-02",
        "content": "这是我做的table布局的咖啡店。",
        "img": "zhengfang.png"
@@ -22,7 +22,7 @@
        "img": "zhengfang.png"
     },{
        "id":"3",
-       "title": "我的咖啡店（div布局）",
+       "title": "我的咖啡店",
        "cretime":"2019-11-02",
        "content": "这是我做的第一个div布局的咖啡店。",
        "img": "zhengfang.png"
