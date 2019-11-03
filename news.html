@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>News</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./main.css">
+</head>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="./js/jquery-3.4.1.min.js"></script>
+<script src="./bootstrap/js/bootstrap.min.js"></script>
+<style>
+    .content-board {
+        width: 100%;
+        height: auto;
+    }
+    
+    .content-board .content-header {
+        height: auto;
+        width: 100%;
+        text-align: center;
+        line-height: 100px;
+        font-size: 35px;
+    }
+    /* .content-board .content-header:hover{
+        font-size: 40px;
+    } */
+
+    .content-board .content-body {
+        height: auto;
+        width: 100%;
+    }
+    .media-left img{
+        width: 230px;
+        height: 230px;
+    }
+</style>
+
+<body>
+    <header class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid width1200">
+            <div class="navbar-header">
+                <img src="./img/商店.png" alt="鱼">
+                <a class="navbar-brand" href="#">商家联盟</a></div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="./index.html">首页</a></li>
+                    <li><a href="./news.html">新闻</a></li>
+                    <li><a href="./about.html">关于我们</a></li>
+                    <li><a href="./danmu.html">弹幕墙</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="width1200">
+            <div class="content-board ">
+                <div class="content-header">
+                    新闻动态
+                </div>
+                <div class="content-body">
+                        <div class="row">
+                                <div class="col-xs-6" id="leftnews">
+                                    
+                                    </div>
+                                <div class="col-xs-6" id="rightnews">
+                                    
+                                    </div>
+                              </div>
+                        <nav aria-label="Page navigation">
+                                <ul class="pager">
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                      </ul>
+                        </nav>
+                </div>
+            </div>
+    </div>
+    <footer>
+        <div class="width1200 ">
+            <div class="footer-message ">
+                <div class="container-fluid ">
+                    <div class="row ">
+                        <div class="col-xs-3 ">
+                            <div class="mythumbnail ">
+                                <img src="./img/定位.png " alt="位置 ">
+                                <div class="mycaption ">
+                                    福州市闽侯县闽江学院
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3 ">
+                            <div class="mythumbnail ">
+                                <img src="./img/邮件.png " alt="邮箱 ">
+                                <div class="mycaption ">
+                                    1095381885@qq.com
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3 ">
+                            <div class="mythumbnail ">
+                                <img src="./img/电话.png " alt="电话 ">
+                                <div class="mycaption ">
+                                    187603137444
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3 ">
+                            <div class="mythumbnail ">
+                                <img src="./img/二维码.png " alt="二维码 " ">
+                                            <div class=" mycaption ">
+                                                扫一扫，加入商家联盟
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" footer-low ">
+                            版权所有@商家
+                        </div>
+                    </div>
+                    </footer>
+</body>
+<script>
+$(document).ready(function(){
+    var index=1;
+function getnews(index){
+    axios.get('./data/qyz/news'+index)
+                .then(function (response) {
+                    var ns;
+                    var leftnews=" ";
+                    var rightnews=" ";
+                    for (var n in response.data) {
+                        ns = response.data[n];
+                        if(n%2==0){
+                            leftnews=leftnews+'<ul class="media-list"><li class="media"><div class="media-left"><a href="./news-detail.html?id='+ns.id+'"> <img class="media-object" src="./img/'+ns.img+'" alt="'+ns.img+'"></a></div><div class="media-body"><h3 class="media-heading">'+ns.title+'</h3><p>'+ns.cretime+'</p><p>'+ns.content+'</p></div></li></ul><br>';
+                        }else{
+                            rightnews=rightnews+'<ul class="media-list"><li class="media"><div class="media-left"><a href="./news-detail.html?id='+ns.id+'"> <img class="media-object" src="./img/'+ns.img+'" alt="'+ns.img+'"></a></div><div class="media-body"><h3 class="media-heading">'+ns.title+'</h3><p>'+ns.cretime+'</p><p>'+ns.content+'</p></div></li></ul><br>';
+                        }
+                        } 
+                        $(" #leftnews ").html(leftnews);
+                        $(" #rightnews ").html(rightnews);
+                }).catch(function (error) { $(" #leftnews ").html(" <h4>新闻获取失败...</h4>"); });
+}
+getnews(index);
+$("li a").click(function(){
+    getnews($(this).text())
+});
+});
+</script>
+</html>

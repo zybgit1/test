@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <title>About</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./main.css">
+</head>
+<script src="./js/jquery-3.4.1.min.js"></script>
+<script src="./bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=4YZTOz3LpVp5GVX5PN0uv37HTyaueHuR"></script>
+<style>
+.height400{
+    height: 400px;
+}
+.content-board {
+        width: 100%;
+        height: auto;
+        min-height: 400px;
+    }
+    
+    .content-board .content-header {
+        height: auto;
+        width: 100%;
+        text-align: center;
+        line-height: 100px;
+        font-size: 35px;
+    }
+    /* .content-board .content-header:hover{
+        font-size: 40px;
+    } */
+
+    .content-board .content-body {
+        height: auto;
+        min-height: 300px;
+        width: 100%;
+    }
+#aboutmap{
+    width: 600px;
+    height: 300px;
+    position: relative;
+    display: inline-block;
+}
+#abouttext{
+    width: 600px;
+    height: 300px;
+    position: relative;
+    float: right;
+    padding: 0px 0px 0px 20px;
+}
+#abouttext p{
+    display: block;
+    height: 150px;
+    position: relative;
+    margin: 0px;
+}
+#abouttext .aboutli{
+    position: relative;
+    width: 100%;
+height: 50px;
+line-height: 40px;
+padding: 5px 0px 5px 0px;
+font-size: 18px;
+}
+.aboutli img{
+    height: 40px;
+    width: 40px;
+    margin-right: 20px;
+}
+</style>
+
+<body>
+    <header class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid width1200">
+            <div class="navbar-header">
+                <img src="./img/商店.png" alt="鱼">
+                <a class="navbar-brand" href="#">好多鱼联盟</a></div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="./index.html">首页</a></li>
+                    <li><a href="./news.html">新闻</a></li>
+                    <li><a href="./about.html">关于我们</a></li>
+                    <li><a href="./danmu.html">弹幕墙</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="width1200 height400">
+            <div class="content-board ">
+                    <div class="content-header ">
+                        关于我们
+                    </div>
+                    <div class="content-body">
+                                <div id="aboutmap"></div>
+                                <div id="abouttext"><p>盼盼集团是以生产盼盼高级安全门、防火门、安全窗、彩色钢质夹层墙体板、 全自动车库门、防爆散热器、自行车变速器、钢结构为主业，以开发新型建筑材料为主导，集工、商、贸为一体的多功能、多元化、外向型的现代企业集团。</p>
+                                        <div class="aboutli"><img src="./img/定位.png" alt="定位.png">福州市闽侯县闽江学院</div>
+                                        <div class="aboutli"><img src="./img/邮件.png" alt="邮件.png">1095381885@qq.com</div>
+                                        <div class="aboutli"><img src="./img/电话.png" alt="电话.png">18760313444</div>
+                                </div>
+                    </div>
+                </div>
+            
+    </div>
+    <br>
+    <br>
+
+    <footer>
+        <div class="width1200 ">
+            <div class="footer-message ">
+                <div class="container-fluid ">
+                    <div class="row ">
+                        <div class="col-xs-3 ">
+                            <div class="mythumbnail ">
+                                <img src="./img/定位.png " alt="位置 ">
+                                <div class="mycaption ">
+                                    福州市闽侯县闽江学院
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3 ">
+                            <div class="mythumbnail ">
+                                <img src="./img/邮件.png " alt="邮箱 ">
+                                <div class="mycaption ">
+                                    1095381885@qq.com
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3 ">
+                            <div class="mythumbnail ">
+                                <img src="./img/电话.png " alt="电话 ">
+                                <div class="mycaption ">
+                                    187603137444
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3 ">
+                            <div class="mythumbnail ">
+                                <img src="./img/二维码.png " alt="二维码 " ">
+                                            <div class=" mycaption ">
+                                                扫一扫，加入商家联盟
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" footer-low ">
+                            版权所有@商家
+                        </div>
+                    </div>
+                    </footer>
+</body>
+<script>
+$(document).ready(function(){
+    function addmap(){
+// 百度地图API功能
+var map = new BMap.Map("aboutmap");    // 创建Map实例
+var point = new BMap.Point(119.172522,26.069421);
+	map.centerAndZoom(point, 15);// 初始化地图,设置中心点坐标和地图级别
+	var marker = new BMap.Marker(point);  // 创建标注
+	map.addOverlay(marker);               // 将标注添加到地图中 
+	//添加地图类型控件
+	map.addControl(new BMap.MapTypeControl({
+		mapTypes:[
+            BMAP_NORMAL_MAP,
+            BMAP_HYBRID_MAP
+        ]}));	  
+	map.setCurrentCity("福州");          // 设置地图显示的城市 此项是必须设置的
+	map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+    var top_left_control = new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});// 左上角，添加比例尺
+	var top_left_navigation = new BMap.NavigationControl();  //左上角，添加默认缩放平移控件
+	var top_right_navigation = new BMap.NavigationControl({anchor: BMAP_ANCHOR_TOP_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL}); //右上角，仅包含平移和缩放按钮
+	/*缩放控件type有四种类型:
+	BMAP_NAVIGATION_CONTROL_SMALL：仅包含平移和缩放按钮；BMAP_NAVIGATION_CONTROL_PAN:仅包含平移按钮；BMAP_NAVIGATION_CONTROL_ZOOM：仅包含缩放按钮*/
+	
+	//添加控件和比例尺
+    map.addControl(top_left_control);        
+	map.addControl(top_left_navigation);     
+	map.addControl(top_right_navigation); 
+    }
+addmap();
+});
+</script>
+</html>

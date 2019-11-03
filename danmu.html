@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>小郑弹幕</title>
+    <script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
+</head>
+<style>
+    #barragewall {
+        position: relative;
+        width: 100%;
+        height: 600px;
+        background-image: linear-gradient(to bottom right, rgb(250, 250, 250), rgb(109, 245, 150));
+        overflow: hidden;
+    }
+    
+    .textcenter {
+        text-align: center;
+    }
+    .barrage {
+        position: absolute;
+        white-space: nowrap;
+        left: 100%;
+    }
+    .textright {
+        text-align: right;
+    }
+</style>
+
+<body>
+    <div id="barragewall">
+    </div>
+    <br>
+    <div class="textcenter">
+        <input type="text" id="inputbarrage"><input type="checkbox" id="clearinput"><label for="">发射后清空输入框</label>
+    </div>
+    <br>
+    <div class="textcenter">
+        <button id="send">发射</button>
+        <button id="clear">清屏</button>
+    </div>
+    <div class="textright"><button id="stop">试图停止</button></div>
+</body>
+<script>
+    $(document).ready(function() {
+        var wall = $("#barragewall");
+        //发射弹幕
+        function biubarrage() {
+            //获取弹幕内容
+            var inputbarrage = $("#inputbarrage").val();
+            //生产弹幕div
+            var barrage = $('<div class="barrage">' + inputbarrage + '</div>');
+            //随机弹幕颜色、字体大小
+            var r = Math.random() * 256;
+            var g = Math.random() * 256;
+            var b = Math.random() * 256;
+            var fontSize = Math.random() * 16 + 10;
+
+            barrage.css('color', 'rgba(' + r + ',' + g + ',' + b + ')');
+            barrage.css('font-size', fontSize + 'px');
+
+            //随机发射速度（动画时间）
+            var speed = Math.random() * 5000 + 5000;
+            //添加弹幕到弹幕墙
+            wall.append(barrage);
+            // 随机弹幕高度，弹幕高度需要等其他样式设置完成后再设置。
+            // 笔记：经过测试，弹幕div只有添加到父元素中后才会有高度，所以要到这里再设置高度防止弹幕过低超出弹幕墙下边界
+            var top = Math.random() * (wall.height() - barrage.height());
+            barrage.css('top', top + 'px');
+            //获取弹幕的来设定弹幕动画结束位置
+            var barragewidth = "-" + barrage.width() + "px";
+            $(".barrage").animate({
+                left: barragewidth
+            }, speed, "linear", function() {
+                this.remove();
+            });
+            if ($("#clearinput").is(':checked')) {
+                $("#inputbarrage").val("");
+            }
+        }
+        //点击发射按钮
+        $("#send").click(function() {
+            biubarrage();
+        });
+        
+        //回车发射
+        $("#inputbarrage").keydown(function(event) {
+            //回车键的值为13
+            if (event.key == "Enter") {
+                biubarrage();
+            }
+        });
+        //清屏
+        $("#clear").click(function() {
+            wall.empty();
+        });
+        //停止弹幕
+        $("#stop").click(function() {
+            $(".barrage").stop();
+        });
+    });
+</script>
+
+</html>

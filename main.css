@@ -1,0 +1,82 @@
+body {
+    padding-top: 60px;
+    min-width: 1200px;
+    /* background-image: linear-gradient(to bottom right, rgb(221, 221, 221), rgb(255, 255, 255)); */
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.navbar-header img {
+    float: left;
+    height: 50px;
+    width: 50px;
+}
+
+footer {
+    min-width: 1200px;
+    width: 100%;
+    position: relative;
+    height: 400px;
+    background-color: #D7D7D7;
+    margin: auto;
+}
+
+footer div {
+    position: relative;
+    height: 100%;
+}
+
+.width1200 {
+    position: relative;
+    width: 1200px;
+    padding: 0px;
+    margin: auto;
+    min-width: 1200px;
+    height: auto;
+}
+
+.footer-message {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    border-bottom: 2px solid black;
+}
+
+.footer-low {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+}
+
+.mythumbnail {
+    width: 100%;
+    height: 80%;
+    position: relative;
+    margin: auto;
+    margin-top: 20%;
+    text-align: center;
+}
+
+.mythumbnail img {
+    width: 60%;
+}
+
+.mycaption {
+    position: relative;
+    text-align: center;
+    height: auto;
+    line-height: 30px;
+}
+
+.thumbnail:hover {
+    border: 2px solid black;
+}

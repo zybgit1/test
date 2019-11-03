@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./main.css">
+</head>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="./js/jquery-3.4.1.min.js"></script>
+<script src="./bootstrap/js/bootstrap.min.js"></script>
+<style>
+    .carousel-size {
+        margin: auto;
+        width: 1500px;
+        height: 600px;
+    }
+    
+    .content-board {
+        width: 100%;
+        height: auto;
+        min-height: 200px;
+    }
+    
+    .content-board .content-header {
+        height: auto;
+        width: 100%;
+        text-align: center;
+        line-height: 100px;
+        font-size: 30px;
+    }
+    .content-board .content-header:hover{
+        font-size: 40px;
+    }
+
+    .content-board .content-body {
+        height: auto;
+        min-height: 100px;
+        width: 100%;
+    }
+    
+    .servicebg {
+        padding-bottom: 50px;
+        background-color: #D7D7D7;
+    }
+    
+    
+    
+    #anli img{
+        width: 100%;
+        background-color: #D7D7D7;
+    }
+    .anlirow{
+        position: relative;
+        width: auto;
+        height: auto;
+        border-top: 2px solid black;
+        border-bottom: 2px solid black;
+    }
+    .anlirow:after {
+        content:""; 
+        display: block; 
+        clear:both; 
+    }
+    .anlicol{
+        position: relative;
+        float: left;
+        width: 600px;
+        height: 600px;
+    }
+    .anlicol-header{
+        position: relative;
+        width: 100%;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        font-size: 25px;
+    }
+    .anlicol-body{
+        position: relative;
+        width: 100%;
+        height: 300px;
+        text-align: left;
+        line-height: 50px;
+        font-size: 18px;
+        padding: 25px;
+    }
+    .anlicol-footer{
+        position: relative;
+        width: 100%;
+        height: 200px;
+        text-align: left;
+        line-height: 50px;
+        font-size: 18px;
+        padding: 25px;
+    }
+    .mpzero {
+        margin: 0px;
+        padding: 0px;
+    }
+</style>
+
+<body>
+    <header class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid width1200">
+            <div class="navbar-header">
+                <img src="./img/商店.png" alt="鱼">
+                <a class="navbar-brand" href="#">商家联盟</a></div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="./index.html">首页</a></li>
+                    <li><a href="./news.html">新闻</a></li>
+                    <li><a href="./about.html">关于我们</a></li>
+                    <li><a href="./danmu.html">弹幕墙</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div id="myCarousel" class="carousel slide carousel-size">
+        <!-- 轮播（Carousel）指标 -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <!-- 轮播（Carousel）项目 -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="./img/商店1.jpg" alt="First slide" style="width: 1500px;height: 600px;">
+                <div class="carousel-caption">一家著名的店</div>
+            </div>
+            <div class="item">
+                <img src="./img/商店2.jpg" alt="Second slide" style="width: 1500px;height: 600px;">
+                <div class="carousel-caption">它很好</div>
+            </div>
+            <div class="item">
+                <img src="./img/商店3.jpg" alt="Third slide" style="width: 1500px;height: 600px;">
+                <div class="carousel-caption">他的老板很好
+                </div>
+            </div>
+        </div>
+        <!-- 轮播（Carousel）导航 -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <div class="width1200">
+        <div class="content-board">
+            <div class="content-header">
+                 <a href="#">服务范围</a>
+            </div>
+            <div class="content-body servicebg">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <div class="mythumbnail">
+                                <a href="https://www.runoob.com/html/html-tutorial.html"><img src="./img/html.png" alt="html课程">
+                                    <div class="mycaption">
+                                        <h3>html课程</h3>
+                                    </div></a>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="mythumbnail">
+                                <a href="https://www.runoob.com/css/css-tutorial.html"><img src="./img/css.png" alt="css课程">
+                                <div class="mycaption">
+                                    <h3>css课程</h3>
+                                </div></a>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="mythumbnail">
+                                <a href="https://www.runoob.com/js/js-tutorial.html"><img src="./img/js.png" alt="js课程">
+                                <div class="mycaption">
+                                    <h3>js课程</h3>
+                                </div></a>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="mythumbnail">
+                                <a href="https://www.runoob.com/bootstrap/bootstrap-tutorial.html"><img src="./img/bootstrap.png" alt="bootstrap课程">
+                                <div class="mycaption ">
+                                    <h3>bootstrap课程</h3>
+                                </div></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-board ">
+            <div class="content-header ">
+                <a href="#">案例介绍</a>
+            </div>
+            <div class="content-body " id="anli">
+                <!-- 案例介绍内容 -->
+                <div class="anlirow">
+                    <div class="anlicol">
+                        <a href="#"><img src="./img/zhengfang.png" alt="qyz.png"></a>
+                    </div>
+                    <div class="anlicol">
+                        <div class="anlicol-header">企业站</div>
+                        <div class="anlicol-body"><p>这是我第一个企业站</p></div>
+                        <div class="anlicol-footer">2019年11月1日</div>
+                    </div>
+                </div>
+                <br>
+                <div class="anlirow">
+                    <div class="anlicol">
+                            <div class="anlicol-header">弹幕墙
+                            </div>
+                            <div class="anlicol-body">这是我第一个弹幕墙</div>
+                            <div class="anlicol-footer">2019年11月1日</div>
+                    </div>
+                    <div class="anlicol">
+                        <a href="./danmu.html"><img src="./img/zhengfang.png" alt="qyz.png"></a>
+                    </div>
+                </div>
+                <br>
+                <div class="anlirow">
+                    <div class="anlicol">
+                        <a href="./portfolio.html"><img src="./img/zhengfang.png" alt="qyz.png"></a>
+                    </div>
+                    <div class="anlicol">
+                            <div class="anlicol-header">个人主页</div>
+                            <div class="anlicol-body">这是我第一个个人主页</div>
+                            <div class="anlicol-footer">2019年10月31日</div>
+                    </div>
+                </div>
+                <br>
+                <div class="anlirow">
+                    <div class="anlicol">
+                            <div class="anlicol-header">咖啡店</div>
+                            <div class="anlicol-body">这是我第一家自己经营咖啡店</div>
+                            <div class="anlicol-footer">2019年10月31日</div>
+                    </div>
+                    <div class="anlicol">
+                        <a href="./coffee-div.html"><img src="./img/zhengfang.png" alt="qyz.png"></a>
+                    </div>
+                </div>
+        
+            </div>
+        </div>
+        <div class="content-board ">
+            <div class="content-header ">
+                <a href="./news.html">新闻动态</a>
+            </div>
+            <div class="content-body">
+                <div class="row " id="news">
+                   <!-- 新闻动态内容 -->
+                </div>
+            </div>
+        </div>
+
+      
+
+    </div>
+    <footer>
+        <div class="width1200 ">
+            <div class="footer-message ">
+                <div class="container-fluid ">
+                    <div class="row ">
+                        <div class="col-xs-3 ">
+                            <div class="mythumbnail ">
+                                <img src="./img/定位.png " alt="位置 ">
+                                <div class="mycaption ">
+                                    福州市闽侯县闽江学院
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3 ">
+                            <div class="mythumbnail ">
+                                <img src="./img/邮件.png " alt="邮箱 ">
+                                <div class="mycaption ">
+                                    1095381885@qq.com
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3 ">
+                            <div class="mythumbnail ">
+                                <img src="./img/电话.png " alt="电话 ">
+                                <div class="mycaption ">
+                                    18760313444
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3 ">
+                            <div class="mythumbnail ">
+                                <img src="./img/二维码.png " alt="二维码 " ">
+                                <div class=" mycaption ">
+                                    扫一扫，加入商店联盟
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" footer-low ">
+                版权所有@商店
+            </div>
+        </div>
+        </footer>
+</body>
+<script>
+    $(document).ready(function () {
+        $('#myCarousel').carousel({
+    interval: 2000
+});
+        function getnews() {
+            axios.get('./data/qyz/indexnews')
+                .then(function (response) {
+                    var ns;
+                    var news=" ";
+                    for (var n in response.data) {
+                        ns = response.data[n];
+                        news=news+"<div class=\"col-xs-3 \"><a href=\"./news-detail.html?id="+ns.id+" \"><div class=\"thumbnail \"><img src=\"./img/"+ns.img+" \" alt=\""+ns.img+" \"><div class=\"caption \"><h3>"+ns.title+"</h3><p>"+ns.cretime+"</p><p>"+ns.content+"</p></div> </div></a></div> ";
+                        } 
+                        $(" #news ").append(news);
+                }).catch(function (error) { $(" #news ").html(" <h4>新闻获取失败...</h4>"); });
+        }; 
+        getnews();
+    });
+                        </script>
+
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>News detail</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./main.css">
+</head>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="./js/jquery-3.4.1.min.js"></script>
+<script src="./bootstrap/js/bootstrap.min.js"></script>
+<style>
+.content-board {
+        width: 100%;
+        height: auto;
+        background-color: rgb(235, 235, 235);
+    }
+    
+    .content-board .content-header {
+        height: auto;
+        width: 100%;
+        text-align: center;
+        line-height: 100px;
+        font-size: 35px;
+    }
+    /* .content-board .content-header:hover{
+        font-size: 40px;
+    } */
+
+    .content-board .content-body {
+        height: auto;
+        width: 100%;
+    }
+    #img{
+        position: relative;
+        width: 100%;
+        height: auto;
+        text-align: center;
+    }
+    #img img{
+        width: 800;
+        height: auto;
+    }
+    #content{
+        line-height: 50px;
+        font-size: 20px;
+        padding:20px;
+    }
+    #cretime{
+line-height: 50px;
+text-align: right;
+font-size: 15px;
+padding: 20px;
+    }
+        /* 首字大写 */
+
+.firstbig::first-letter {
+    font-size: 32px;
+}
+
+
+/* 首行缩进 */
+
+.firstback {
+    text-indent: 40px;
+}
+hr{
+    width: 20%;
+    height: 2px;
+    background-color: black;
+}
+</style>
+
+<body>
+    <header class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid width1200">
+            <div class="navbar-header">
+                <img src="./img/商店.png" alt="鱼">
+                <a class="navbar-brand" href="#">商家联盟</a></div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="./index.html">首页</a></li>
+                    <li><a href="./news.html">新闻</a></li>
+                    <li><a href="./about.html">关于我们</a></li>
+                    <li><a href="./danmu.html">弹幕墙</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="width1200">
+            <div class="content-board ">
+                <div class="content-header" id="title">
+                </div>
+                <hr>
+                <div class="content-body">
+                    <div id="img"></div>
+                    <div id="content"></div>
+                    <div id="cretime"></div>
+                </div>
+            </div>
+    </div>
+    <br>
+    <footer>
+        <div class="width1200 ">
+            <div class="footer-message ">
+                <div class="container-fluid ">
+                    <div class="row ">
+                        <div class="col-xs-3 ">
+                            <div class="mythumbnail ">
+                                <img src="./img/定位.png " alt="位置 ">
+                                <div class="mycaption ">
+                                    福州市闽侯县闽江学院
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3 ">
+                            <div class="mythumbnail ">
+                                <img src="./img/邮件.png " alt="邮箱 ">
+                                <div class="mycaption ">
+                                    1095381885@qq.com
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3 ">
+                            <div class="mythumbnail ">
+                                <img src="./img/电话.png " alt="电话 ">
+                                <div class="mycaption ">
+                                    187603137444
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3 ">
+                            <div class="mythumbnail ">
+                                <img src="./img/二维码.png " alt="二维码 " >
+                                            <div class=" mycaption ">
+                                                扫一扫，加入商家联盟
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" footer-low ">
+                            版权所有@商家
+                        </div>
+                        
+                    </div>
+                    </footer>
+</body>
+<script>
+$(document).ready(function(){
+    var id = window.location.href.split("?")[1].split("=")[1];
+    function getcontent(id){
+        axios.get('./data/qyz/id'+id)
+                .then(function (response) {
+                    var ns=response.data;
+                    $(" #title ").html(ns.title);
+                    $(" #img ").html('<img src="./img/'+ns.img+'" alt="'+ns.img+'">');
+                    $(" #content ").html('<p class="firstback firstbig">'+ns.content+'</p>');
+                    $(" #cretime ").html(ns.cretime);
+                }).catch(function (error) { 
+                    $(" #title ").html(" 新闻内容获取失败..."); 
+                    
+                });
+    }
+    getcontent(id);
+});
+</script>
+</html>
